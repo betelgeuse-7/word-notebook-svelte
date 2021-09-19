@@ -19,7 +19,7 @@
     }
     function handleDelete(data) {
         console.log(msg)
-        msg = data.msg
+        msg = msg.msg
         words = retrieve()
     }
 </script>
@@ -33,7 +33,7 @@
         <div class="msg">{msg}</div>
     {/if}
     <NewWord on:new-word={data => handleNewWord(data.detail)} on:error={data => handleError(data.detail)} />
-    {#if words.length > 0}
+    {#if words !== null}
         <WordList words={words} on:delete={data => handleDelete(data.detail)} />
     {:else}
         <div>No words. Add some</div>
